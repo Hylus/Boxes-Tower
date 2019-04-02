@@ -6,34 +6,22 @@ public abstract class AbstractFigure : MonoBehaviour
 {
     [SerializeField] float _springDistance;
     [SerializeField] float _springDampingRatio;
-    [SerializeField] float _springFraquency;
+    [SerializeField] float _springFrequency;
     [SerializeField] bool _springEnableCollision;
     [SerializeField] int _points;
 
     public int Points
     {
-        get
-        {
-            return _points;
-        }
-
-        set
-        {
-            _points = value;
-        }
+        get => _points;
+        set => _points = value;
     }
 
-    /// <summary>
-    /// Set distance, dampingRatio, frequency, enableCollision
-    /// </summary>
-    /// <param name="spring"></param>
-    /// <returns></returns>
     public SpringJoint2D SetSpringJoint2D(SpringJoint2D spring)
     {
         spring.autoConfigureDistance = false;
         spring.distance = _springDistance;
         spring.dampingRatio = _springDampingRatio;
-        spring.frequency = _springFraquency;
+        spring.frequency = _springFrequency;
         spring.enableCollision = true;
         return spring;
     }
